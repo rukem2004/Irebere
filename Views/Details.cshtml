@@ -1,0 +1,410 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Details>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> details</title>
+        <meta name="description" content="IREBERE">
+        <meta name="author" content="Rukem">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/fontello.css">
+        <link href="/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+        <link href="/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+        <link href="/css/animate.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="/css/bootstrap-select.min.css"> 
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/icheck.min_all.css">
+        <link rel="stylesheet" href="/css/price-range.css">
+        <link rel="stylesheet" href="/css/owl.carousel.css">  
+        <link rel="stylesheet" href="/css/owl.theme.css">
+        <link rel="stylesheet" href="/css/owl.transitions.css">
+        <link rel="stylesheet" href="/css/lightslider.min.css">
+        <link rel="stylesheet" href="/css/iduka.css">
+        <link rel="stylesheet" href="/css/responsive.css">
+    </head>
+    <body>
+       
+        
+        
+        
+
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        
+
+       <div class="page-head"> 
+     
+  @{
+var headerfoto = Model.Value<IPublishedContent>("headerFoto", fallback: Fallback.ToAncestors);
+}
+     
+        </div>
+        <!-- End page header -->
+
+        <!-- property area -->
+        <div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">   
+
+                <div class="clearfix padding-top-40" >
+
+                    <div class="col-md-8 single-property-content prp-style-1 ">
+                        <div class="row">
+                            <div class="light-slide-item">            
+                                <div class="clearfix">
+                                    <div class="favorite-and-print">
+                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
+                                            <i class="fa fa-star-o"></i>
+                                        </a>
+                                        <a class="printer-icon " href="javascript:window.print()">
+                                            <i class="fa fa-print"></i> 
+                                        </a>
+                                    </div> 
+                                    
+                                    
+
+                                    <div id="image-gallery"class="gallery list-unstyled cS-hidden">
+
+       
+@{
+    var houseForSale = Model.Value<IEnumerable<IPublishedContent>>("imagesOfHouse");
+    foreach (var item in houseForSale)
+    {
+      <li data-thumb="@item.GetCropUrl(width:300, height:300)">
+      <img src  ="@item.GetCropUrl(width:800, height:500)"  />
+   </li>
+    }
+}
+  
+  
+  
+  
+  
+                                        
+                                       <!-- <li data-thumb="img/property-1/property1.jpg"> 
+                                            <img src="img/property-1/property1.jpg" />
+                                        </li>
+                                        <li data-thumb="img/property-1/property2.jpg"> 
+                                            <img src="img/property-1/property3.jpg" />
+                                        </li>
+                                        <li data-thumb="img/property-1/property3.jpg"> 
+                                            <img src="img/property-1/property3.jpg" />
+                                        </li>
+                                        <li data-thumb="img/property-1/property4.jpg"> 
+                                            <img src="img/property-1/property4.jpg" />
+                                        </li>     -->                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="single-property-wrapper">
+                            <div class="single-property-header">                                          
+                                <h1 class="property-title pull-left">@Model.Value("nameOfProperty")</h1>
+                                <span class="property-price pull-right">@Model.Value("propertyPrice")</span>
+                            </div>
+
+                            <div class="property-meta entry-meta clearfix ">   
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                   <span class="property-info-icon icon-tag">                                        
+                                        <img src="/img/icon/sale-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Status:</span>
+                                        <span class="property-info-value">@Model.Value("status")</span>
+                                        
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                    <span class="property-info icon-area">
+                                       <img src="/img/icon/room-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Area:</span>
+                                        <span class="property-info-value">@Model.Value("areal")</span>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                    <span class="property-info-icon icon-bed">
+                                        <img src="/img/icon/bed-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Bedrooms:</span>
+                                        <span class="property-info-value">@Model.Value("bedroom")</span>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                  <span class="property-info-icon icon-bed">
+                                        <img src="/img/icon/cars-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Dinning Room:</span>
+                                       <span class="property-info-value">@Model.Value("dinningRooms")</span>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                    <span class="property-info-icon icon-bath">
+                                        <img src="/img/icon/os-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Bathrooms:</span>
+                                        <span class="property-info-value">@Model.Value("bathrooms")</span>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                  <span class="property-info-icon icon-garage">
+                                        <img src="/img/icon/cars-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">sting room:</span>
+                                        <span class="property-info-value">@Model.Value("rooms")</span>
+                                    </span>
+                                </div>
+                                
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                   <span class="property-info-icon icon-garage">
+                                        <img src="/img/icon/shawer-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Toilet:</span>
+                                        <span class="property-info-value">@Model.Value("toillet")</span>
+                                    </span>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                    <span class="property-info-icon icon-bed">
+                                        <img src="/img/icon/bed-orange.png">
+                                    </span>
+                                    <span class="property-info-entry">
+                                        <span class="property-info-label">Garage:</span>
+                                        <span class="property-info-value">@Model.Value("garage")</span>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <!-- .property-meta -->
+
+                            <div class="section">
+                                <h4 class="s-property-title">Description</h4>
+                                <div class="s-property-content">
+                                    <p>@Model.Value("historyOfTheHouse") </p>
+                                </div>
+                            </div>
+                            <!-- End description area  -->
+
+                            <div class="section additional-details">
+
+                                <h4 class="s-property-title">@Model.Value("additional")</h4>
+
+                                <ul class="additional-details-list clearfix">
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Waterfront</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("waterfront")</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Built In</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("builtIn")</span>
+                                    </li>
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Parking</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("parking")</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Anex</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("anex")</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">View</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("outView")</span>
+                                    </li>
+
+                                    <li>
+                                        <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">Garden</span>
+                                        <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">@Model.Value("garden")</span>
+                                    </li> 
+
+                                </ul>
+                            </div>  
+                            <!-- End additional-details area  -->
+
+                            <div class="section property-features">      
+
+                                <h4 class="s-property-title">Features</h4>                            
+                                <ul>
+                                    <li><a href="properties.html">Swimming Pool</a></li>   
+                                    <li><a href="properties.html">3 Stories</a></li>
+                                    <li><a href="properties.html">Central Cooling</a></li>
+                                    <li><a href="properties.html">Jog Path 2</a></li>
+                                    <li><a href="properties.html">2 Lawn</a></li>
+                                    <li><a href="properties.html">Bike Path</a></li>
+                                </ul>
+
+                            </div>
+                            <!-- End features area  -->
+
+                          <!--  publish a video-->
+                              
+                          <!--
+                                <div class="section property-video"> 
+                                <h4 class="s-property-title">Property Video</h4> 
+                                <div class="video-thumb">
+                                    <a class="video-popup" href="yout" title="Virtual Tour">
+                                        <img src="img/property-video.jpg" class="img-responsive wp-post-image" alt="Exterior">            
+                                    </a>
+                                </div>
+                            </div>
+                             End video area  -->
+                            
+                            
+
+                            <div class="section property-share"> 
+                                <h4 class="s-property-title">Share width your friends </h4> 
+                                <div class="roperty-social">
+                                    <ul> 
+                                                                                
+                                        <li><a title="Share this on facebook " href="https://www.facebook.com"><img src="/img/social_big/facebook_grey.png"></a></li> 
+                                                                            
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End video area  -->
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 p0">
+                        <aside class="sidebar sidebar-property blog-asside-right">
+                            <div class="dealer-widget">
+                                <div class="dealer-content">
+                                    <div class="inner-wrapper">
+
+                                        <div class="clear">
+                                            <div class="col-xs-4 col-sm-4 dealer-face">
+                                                <a href="">
+                                                    <img src="/img/client-face1.png" class="img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 ">
+                                                <h3 class="dealer-name">
+                                                    <a href="">@Model.Value("agentName")</a>
+                                                    <span> @Model.Value("agentTitle")</span>        
+                                                </h3>
+                                                <div class="dealer-social-media">
+                                                    <a class="twitter" target="_blank" href="https://twitter.com/">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                    <a class="facebook" target="_blank" href="https://www.facebook.com/rukem.smart/">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                    
+                                                    <a class="linkedin" target="_blank" href="https://www.linkedin.com/">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a> 
+                                                    <a class="instagram" target="_blank" href="https://www.instagram.com/">
+                                                        <i class="fa fa-instagram"></i>
+                                                    </a>       
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="clear">
+                                            <ul class="dealer-contacts">                                       
+                                                <li><i class="pe-7s-map-marker strong"> </i> @Model.Value("agentAdress")</li>
+                                                <li><i class="pe-7s-mail strong"> </i> @Model.Value("agentEmail")</li>
+                                                <li><i class="pe-7s-call strong"> </i> @Model.Value("agentTelf")</li>
+                                            </ul>
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Publicite  </h3>
+                                </div>
+                                <div class="panel-body recent-property-widget">
+                                    <img src="/img/ads.jpg">
+                                    <img src="/img/ads.jpg">
+                                </div>
+                            </div>
+                         
+                        </aside>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+      <script src="/js/modernizr-2.6.2.min.js"></script>
+        
+        <script src="/js/jquery-1.10.2.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap-select.min.js"></script>
+        <script src="/js/bootstrap-hover-dropdown.js"></script>
+        <script src="/js/easypiechart.min.js"></script>
+        <script src="/js/jquery.easypiechart.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/wow.js"></script>
+        <script src="/js/icheck.min.js"></script>
+        <script src="/js/price-range.js"></script>
+        <script type="text/javascript" src="/js/lightslider.min.js"></script>
+        <script src="/js/main.js"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                $('#image-gallery').lightSlider({
+                    gallery: true,
+                    item: 1,
+                    thumbItem: 9,
+                    slideMargin: 0,
+                    speed: 500,
+                    auto: false,
+                    loop: true,
+                    onSliderLoad: function () {
+                        $('#image-gallery').removeClass('cS-hidden');
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>
+
+
+
+

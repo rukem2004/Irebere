@@ -1,0 +1,375 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Web.Models;
+@{
+	Layout = "master.cshtml";
+}
+
+
+
+
+<div id="#top"></div>
+<section id="home">
+  <div class="banner-container"> 
+  	<div id="carousel" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+      
+      <!-- banners images-->
+      
+      <div class="item">
+          
+       
+         @{
+    var bannerImage1 = Model.Value<IPublishedContent>("bannerImage1");
+    if (bannerImage1 != null)
+    {
+        
+        <img src="@bannerImage1.Url" />
+    }
+}
+  
+      </div>
+      
+    
+  <div class="item"> 
+  
+   @{
+    var bannerImage2 = Model.Value<IPublishedContent>("bannerImage2");
+    if (bannerImage2 != null)
+    {
+        
+        <img src="@bannerImage2.Url" />
+    }
+}
+  
+     
+  
+  </div>
+    <div class="item">
+        
+         @{
+    var bannerImage3 = Model.Value<IPublishedContent>("bannerImage3");
+    if (bannerImage2 != null)
+    {
+        
+        <img src="@bannerImage3.Url" />
+    }
+}
+  
+        
+ </div>
+    
+  </div>
+  <!-- Carousel nav -->
+ <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+	
+  </div>  
+  
+  <div class="container hero-text2">
+  <h3>@Model.Value("pageTitle")</h3>
+  </div>
+</section>
+<section id="services" class="page-section colord">
+  <div class="container">
+    <div class="row"> 
+      <!-- item -->
+      
+      <div class="col-md-3 text-center">
+     				     @{
+    var houseIcon = Model.Value<IPublishedContent>("houseIcon");
+    if (houseIcon != null)
+    {
+        
+     <a href="/house-to-sale/"><img src="@houseIcon.Url"i class="circle" alt="@houseIcon.Value("alt")" /></a>
+    }
+}
+      
+      
+      
+  
+@{
+    var link = Model.Value<Link>("houseForsaleButton");
+    if (link != null)
+    {
+    <a href="/house-to-sale/"class="btn"target="@link.Target"><h3>@Model.Value("houseForsaleText")</h3></a>
+    }
+}
+      
+        
+         
+       </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+          
+          @{
+    var houserentIcon = Model.Value<IPublishedContent>("houseForRentIcon");
+    if (houserentIcon != null)
+    {
+        
+     <a href="/house-to-rent/"><img src="@houserentIcon.Url"i class="circle" alt="@houserentIcon.Value("alt")" /></a>
+    }
+}
+  
+          
+          
+          
+          
+      
+      
+      @{
+    var houserent = Model.Value<Link>("houseForRentButton");
+    if (link != null)
+    {
+    <a href="/house-to-rent/"class="btn"target="@link.Target"><h3>@Model.Value("houseForRentText")</h3></a>
+    }
+}
+      
+      
+      
+        
+        </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+          
+          
+          @{
+    var plotIcon = Model.Value<IPublishedContent>("plotIcon");
+    if (plotIcon != null)
+    {
+        
+     <a href="/plots-to-sale/"><img src="@plotIcon.Url"i class="circle" alt="@plotIcon.Value("alt")" /></a>
+    }
+}
+  
+          
+          
+          
+      
+      @{
+    var plotsale = Model.Value<Link>("plotForSaleButton");
+    if (link != null)
+    {
+    <a href="/plots-to-sale/"class="btn"target="@link.Target"><h3>@Model.Value("plotForSaleText")</h3></a>
+    }
+}
+      
+      
+      
+      
+       
+      </div>
+      <!-- end: --> 
+      
+      <!-- item -->
+      <div class="col-md-3 text-center">
+      
+      
+      @{
+    var carIcon = Model.Value<IPublishedContent>("carIcon");
+    if (carIcon != null)
+    {
+        
+      <a href="/cars-to-sale/"><img src="@carIcon.Url"i class="circle" alt="@carIcon.Value("alt")" /></a>
+    }
+}
+  
+      
+      
+      
+      
+      @{
+    var cars = Model.Value<Link>("carForSaleButton");
+    if (link != null)
+    {
+    <a href="/cars-to-sale/"class="btn"target="@link.Target"><h3>@Model.Value("carForSaleText")</h3></a>
+    }
+}
+      
+      
+      
+      
+      
+        
+          
+        </div>
+      <!-- end:--> 
+    </div>
+  </div>
+  <!--/.container--> 
+</section>
+<section id="aboutUs">
+  <div class="container">
+    <div class="heading text-center"> 
+      <!-- Heading -->
+      @Model.Value("aboutUs")
+    </div>
+    <div class="row feature design">
+      <div class="area1 columns right">
+        @Model.Value("design")
+          
+      </div>
+      
+      
+      @{
+    var typedMediaPickerSingle = Model.Value<IPublishedContent>("featurePicture");
+    if (typedMediaPickerSingle != null)
+    {
+        
+        <img src="@typedMediaPickerSingle.Url"class="area2 columns feature-media left" alt="@typedMediaPickerSingle.Value("alt")" />
+    }
+}
+      
+      
+     
+    </div>
+    <div class="row dataTxt">	
+						<div class="col-md-4 col-sm-6">
+							@Model.Value("whatWeDoText")
+						</div>
+						
+						<div class="col-md-4 col-sm-6">
+							
+						@Model.Value("shooseUsText")
+							</div>
+						
+						<div class="col-md-4 col-sm-6">
+						    
+						     @{
+    var typedMediaPicker = Model.Value<IPublishedContent>("featureImage");
+    if (typedMediaPickerSingle != null)
+    {
+        
+        <img src="@typedMediaPicker.Url" alt="@typedMediaPickerSingle.Value("alt")" />
+    }
+}
+   
+							 
+						</div>
+						
+					</div>
+  </div>
+</section> 
+
+
+
+<section id="team" class="page-section">
+  <div class="container">
+    <div class="heading text-center"> 
+      <!-- Heading -->
+      @Model.Value("teamText")
+    </div>
+    <!-- Team Member's Details -->
+    <div class="team-content">
+      <div class="row">
+        @Html.GetGridHtml(Model, "teamImages")
+      </div>
+    </div>
+  </div>
+  <!--/.container--> 
+</section>
+<section id="contactUs" class="contact-parlex">
+  <div class="parlex-back">
+    <div class="container">
+      <div class="row">
+        <div class="heading text-center"> 
+          <!-- Heading -->
+          @Model.Value("contactUs")
+        </div>
+      </div>
+      <div class="row mrgn30">
+        <form method="post" action="" id="contactfrm" role="form">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" title="Please enter a valid email address">
+            </div>
+            <div class="form-group">
+              <label for="comments">Comments</label>
+              <textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
+              <button name="submit" type="submit" class="btn btn-lg btn-primary" id="submit">Send</button>
+            </div>
+            <div class="result"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--/.container--> 
+  </div>
+</section>
+
+
+
+<footer>
+  <section class="container">
+          <div class="row">
+              <div class="col-md-3">
+                <div class="col">
+                     @Model.Value("adress")
+                   </div>
+              </div>
+              
+              
+              
+              <div class="col-md-3">
+                <div class="col col-social-icons">
+                      <h4>@Model.Value("followUs")</h4>
+                      
+                      
+                     @{
+    var faceboo = Model.Value<Link>("facebook");
+    
+    
+    <a href="https://www.facebook.com/rukem.smart"class="fa fa-facebook" target="@faceboo.Target"></a>
+    
+} 
+   &nbsp &nbsp &nbsp
+ 
+    @{
+    var linkdin = Model.Value<Link>("linkdin");
+    
+    <a href="https://www.linkedin.com/in/rukem-iyamuremye"class="fa fa-linkedin" target="@link.Target"></a>
+    }
+          
+    
+   
+    </div>
+              </div>
+  
+               <div class="col-md-3">
+                 <div class="col">
+                      @Model.Value("latestNews")
+                      
+                      
+                       @{
+    var news = Model.Value<Link>("morenewsbutton");
+    if (link != null)
+    {
+    <a href="https://www.helsenorge.no/koronavirus"class="btn" targert="@link.Target">@Model.Value("moreNewsText")</a>
+    }
+} 
+                      
+                     
+                  </div>
+              </div>
+          </div>
+           
+        </section>
+      
+  </footer>
