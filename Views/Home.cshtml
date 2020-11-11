@@ -89,7 +89,7 @@
     if (houseIcon != null)
     {
         
-     <a href="/house-to-sale/"><img src="@houseIcon.Url"i class="circle" alt="@houseIcon.Value("alt")" /></a>
+     <a href="/house-to-sale/"><img src="@houseIcon.Url"i class="circle" /></a>
     }
 }
       
@@ -117,15 +117,11 @@
     if (houserentIcon != null)
     {
         
-     <a href="/house-to-rent/"><img src="@houserentIcon.Url"i class="circle" alt="@houserentIcon.Value("alt")" /></a>
+     <a href="/house-to-rent/"><img src="@houserentIcon.Url"i class="circle"  /></a>
     }
 }
   
           
-          
-          
-          
-      
       
       @{
     var houserent = Model.Value<Link>("houseForRentButton");
@@ -150,7 +146,7 @@
     if (plotIcon != null)
     {
         
-     <a href="/plots-to-sale/"><img src="@plotIcon.Url"i class="circle" alt="@plotIcon.Value("alt")" /></a>
+     <a href="/plots-to-sale/"><img src="@plotIcon.Url"i class="circle"  /></a>
     }
 }
   
@@ -182,7 +178,7 @@
     if (carIcon != null)
     {
         
-      <a href="/cars-to-sale/"><img src="@carIcon.Url"i class="circle" alt="@carIcon.Value("alt")" /></a>
+      <a href="/cars-to-sale/"><img src="@carIcon.Url"i class="circle"  /></a>
     }
 }
   
@@ -228,7 +224,7 @@
     if (typedMediaPickerSingle != null)
     {
         
-        <img src="@typedMediaPickerSingle.Url"class="area2 columns feature-media left" alt="@typedMediaPickerSingle.Value("alt")" />
+        <img src="@typedMediaPickerSingle.Url"class="area2 columns feature-media left"  />
     }
 }
       
@@ -252,7 +248,7 @@
     if (typedMediaPickerSingle != null)
     {
         
-        <img src="@typedMediaPicker.Url" alt="@typedMediaPickerSingle.Value("alt")" />
+        <img src="@typedMediaPicker.Url"  />
     }
 }
    
@@ -262,8 +258,6 @@
 					</div>
   </div>
 </section> 
-
-
 
 <section id="team" class="page-section">
   <div class="container">
@@ -280,96 +274,6 @@
   </div>
   <!--/.container--> 
 </section>
-<section id="contactUs" class="contact-parlex">
-  <div class="parlex-back">
-    <div class="container">
-      <div class="row">
-        <div class="heading text-center"> 
-          <!-- Heading -->
-          @Model.Value("contactUs")
-        </div>
-      </div>
-      <div class="row mrgn30">
-        <form method="post" action="" id="contactfrm" role="form">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" title="Please enter a valid email address">
-            </div>
-            <div class="form-group">
-              <label for="comments">Comments</label>
-              <textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
-              <button name="submit" type="submit" class="btn btn-lg btn-primary" id="submit">Send</button>
-            </div>
-            <div class="result"></div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!--/.container--> 
-  </div>
-</section>
 
 
 
-<footer>
-  <section class="container">
-          <div class="row">
-              <div class="col-md-3">
-                <div class="col">
-                     @Model.Value("adress")
-                   </div>
-              </div>
-              
-              
-              
-              <div class="col-md-3">
-                <div class="col col-social-icons">
-                      <h4>@Model.Value("followUs")</h4>
-                      
-                      
-                     @{
-    var faceboo = Model.Value<Link>("facebook");
-    
-    
-    <a href="https://www.facebook.com/rukem.smart"class="fa fa-facebook" target="@faceboo.Target"></a>
-    
-} 
-   &nbsp &nbsp &nbsp
- 
-    @{
-    var linkdin = Model.Value<Link>("linkdin");
-    
-    <a href="https://www.linkedin.com/in/rukem-iyamuremye"class="fa fa-linkedin" target="@link.Target"></a>
-    }
-          
-    
-   
-    </div>
-              </div>
-  
-               <div class="col-md-3">
-                 <div class="col">
-                      @Model.Value("latestNews")
-                      
-                      
-                       @{
-    var news = Model.Value<Link>("morenewsbutton");
-    if (link != null)
-    {
-    <a href="https://www.helsenorge.no/koronavirus"class="btn" targert="@link.Target">@Model.Value("moreNewsText")</a>
-    }
-} 
-                      
-                     
-                  </div>
-              </div>
-          </div>
-           
-        </section>
-      
-  </footer>

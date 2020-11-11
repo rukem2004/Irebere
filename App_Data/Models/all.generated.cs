@@ -6,8 +6,8 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "98bd131707ffd96f")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a837e5f7d4c2845f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -214,6 +214,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.3")]
 		[ImplementPropertyType("linkdin")]
 		public global::Umbraco.Web.Models.Link Linkdin => this.Value<global::Umbraco.Web.Models.Link>("linkdin");
+
+		///<summary>
+		/// logoImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.3")]
+		[ImplementPropertyType("logoImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent LogoImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("logoImage");
 
 		///<summary>
 		/// more news button
